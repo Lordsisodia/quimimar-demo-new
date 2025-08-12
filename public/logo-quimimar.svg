@@ -1,0 +1,20 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Q letter with droplet shape -->
+  <g id="logo-mark">
+    <path d="M25 15C18.925 15 14 19.925 14 26C14 32.075 18.925 37 25 37C26.275 37 27.475 36.775 28.6 36.4L32 42C32 42 30 45 25 45C13.954 45 5 36.046 5 25C5 13.954 13.954 5 25 5C36.046 5 45 13.954 45 25C45 28.5 44.2 31.8 42.8 34.7L38 28C38.6 26.8 39 25.45 39 24C39 17.925 34.075 13 28 13C21.925 13 17 17.925 17 24C17 30.075 21.925 35 28 35L25 40C25 40 25 37 25 37Z" fill="#0066CC"/>
+    <!-- Water droplet -->
+    <path d="M35 35C35 35 40 28 40 24C40 20 37 18 35 18C33 18 30 20 30 24C30 28 35 35 35 35Z" fill="#00AA00"/>
+  </g>
+  
+  <!-- Company name -->
+  <g id="company-name">
+    <text x="55" y="35" font-family="Montserrat, sans-serif" font-size="28" font-weight="700" fill="#0066CC">
+      QUIMIMAR
+    </text>
+  </g>
+  
+  <!-- Tagline -->
+  <text x="55" y="48" font-family="Open Sans, sans-serif" font-size="10" fill="#6B7280">
+    Productos de Limpieza Profesional
+  </text>
+</svg>

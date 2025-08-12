@@ -1,0 +1,7 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="40" cy="40" r="38" fill="#00AA00" stroke="#ffffff" stroke-width="4"/>
+  <path d="M40 15C40 15 50 25 50 35C50 45 45 50 40 50C35 50 30 45 30 35C30 25 40 15 40 15Z" fill="white"/>
+  <text x="40" y="65" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">
+    ECOLABEL
+  </text>
+</svg>
