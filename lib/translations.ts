@@ -72,24 +72,21 @@ export const translations = {
     products: {
       sectionTitle: "Productos Destacados",
       sectionSubtitle: "Los más vendidos por nuestros clientes",
-      addToCart: "Añadir al carrito",
-      quickView: "Vista rápida",
-      inStock: "En stock",
-      outOfStock: "Agotado",
-      from: "Desde",
-      vat: {
-        included: "IVA incluido",
-        excluded: "IVA no incluido"
-      },
       addToCart: "Añadir al Carrito",
-      outOfStock: "Sin Stock",
+      quickView: "Vista rápida",
       inStock: "En Stock",
+      outOfStock: "Sin Stock",
+      from: "Desde",
       quantity: "Cantidad",
       price: "Precio",
       features: "Características",
       addedToCart: "¡Añadido al Carrito!",
       continueShopping: "Seguir Comprando",
-      descriptionPlaceholder: "Producto de limpieza profesional de alta calidad para tu negocio."
+      descriptionPlaceholder: "Producto de limpieza profesional de alta calidad para tu negocio.",
+      vat: {
+        included: "IVA incluido",
+        excluded: "IVA no incluido"
+      }
     },
     valueProps: {
       sectionTitle: "¿Por qué elegir Quimimar?",
@@ -256,24 +253,21 @@ export const translations = {
     products: {
       sectionTitle: "Featured Products",
       sectionSubtitle: "Best sellers among our customers",
-      addToCart: "Add to cart",
-      quickView: "Quick view",
-      inStock: "In stock",
-      outOfStock: "Out of stock",
-      from: "From",
-      vat: {
-        included: "VAT included",
-        excluded: "VAT excluded"
-      },
       addToCart: "Add to Cart",
-      outOfStock: "Out of Stock",
+      quickView: "Quick view",
       inStock: "In Stock",
+      outOfStock: "Out of Stock",
+      from: "From",
       quantity: "Quantity",
       price: "Price",
       features: "Features",
       addedToCart: "Added to Cart!",
       continueShopping: "Continue Shopping",
-      descriptionPlaceholder: "High-quality professional cleaning product for your business."
+      descriptionPlaceholder: "High-quality professional cleaning product for your business.",
+      vat: {
+        included: "VAT included",
+        excluded: "VAT excluded"
+      }
     },
     valueProps: {
       sectionTitle: "Why choose Quimimar?",

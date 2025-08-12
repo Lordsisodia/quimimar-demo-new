@@ -10,6 +10,9 @@ interface CardProps {
   className?: string
   children: React.ReactNode
   onClick?: () => void
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
+  style?: React.CSSProperties
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -17,7 +20,10 @@ export const Card: React.FC<CardProps> = ({
   clickable = false,
   className,
   children,
-  onClick
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+  style
 }) => {
   return (
     <motion.div
@@ -30,6 +36,9 @@ export const Card: React.FC<CardProps> = ({
         className
       )}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      style={style}
     >
       {children}
     </motion.div>
