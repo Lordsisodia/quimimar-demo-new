@@ -123,7 +123,7 @@ export const Carousel = ({
             whileTap={{ scale: 0.9 }}
             onClick={handlePrevious}
             disabled={currentIndex === 0}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center transition-all ${
+            className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center transition-all ${
               currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
             }`}
           >
@@ -135,7 +135,7 @@ export const Carousel = ({
             whileTap={{ scale: 0.9 }}
             onClick={handleNext}
             disabled={currentIndex === maxIndex}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center transition-all ${
+            className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center transition-all ${
               currentIndex === maxIndex ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
             }`}
           >
