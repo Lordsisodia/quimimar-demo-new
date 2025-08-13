@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { useCart } from '@/contexts/CartContext'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Input } from '@/components/ui/Input'
@@ -19,7 +20,8 @@ import {
 import Link from 'next/link'
 
 export default function CartPage() {
-  const [cartItems, setCartItems] = useState([
+  const { items: cartItems, updateQuantity, removeItem, getTotal } = useCart()
+  const [sampleCartItems] = useState([
     {
       id: 1,
       name: 'CLORSAN',
@@ -42,23 +44,7 @@ export default function CartPage() {
     }
   ])
 
-  const updateQuantity = (id: number, newQuantity: number) => {
-    if (newQuantity === 0) {
-      removeItem(id)
-      return
-    }
-    setCartItems(items => 
-      items.map(item => 
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    )
-  }
-
-  const removeItem = (id: number) => {
-    setCartItems(items => items.filter(item => item.id !== id))
-  }
-
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+  const subtotal = getTotal()
   const shipping = subtotal > 50 ? 0 : 5.95
   const tax = subtotal * 0.21 // 21% IVA
   const total = subtotal + shipping + tax

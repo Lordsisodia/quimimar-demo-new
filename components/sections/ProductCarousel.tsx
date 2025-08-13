@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, ShoppingCart, Eye, Star } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
+import { useCart } from '@/contexts/CartContext'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { QuickViewModal } from '@/components/ui/QuickViewModal'
@@ -94,11 +95,15 @@ const ProductCard = ({
   onQuickView
 }: any) => {
   const [isAddingToCart, setIsAddingToCart] = useState(false)
+  const { addItem } = useCart()
 
   const handleAddToCart = async () => {
     setIsAddingToCart(true)
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 800))
+    
+    // Actually add to cart
+    addItem(product, 1)
     setIsAddingToCart(false)
   }
 

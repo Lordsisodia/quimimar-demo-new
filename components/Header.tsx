@@ -4,12 +4,14 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Search, ShoppingCart, User, Menu, X, Globe, Command } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
+import { useCart } from '@/contexts/CartContext'
 import { Input } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
 export const Header = () => {
   const { locale, setLocale, t } = useTranslation()
+  const { getItemCount } = useCart()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -111,9 +113,11 @@ export const Header = () => {
             {/* Cart */}
             <Link href="/carrito" className="relative p-2 hover:bg-gray-100 rounded-lg transition-colors">
               <ShoppingCart className="w-5 h-5 text-gray-700" />
-              <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                0
-              </span>
+              {getItemCount() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {getItemCount()}
+                </span>
+              )}
             </Link>
 
             {/* User Account */}

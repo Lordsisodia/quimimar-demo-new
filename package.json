@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "dev:network": "node scripts/dev-with-network.js",
+    "dev:mobile": "./scripts/start-mobile-server.sh",
+    "dev:public": "./scripts/start-with-ngrok.sh",
     "network-info": "node scripts/show-network-urls.js",
     "build": "next build",
     "start": "next start",

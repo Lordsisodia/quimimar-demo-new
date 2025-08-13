@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { TranslationProvider } from '@/hooks/useTranslation'
+import { CartProvider } from '@/contexts/CartContext'
 import { ScrollProgress } from '@/components/ScrollProgress'
 import { MobileBottomNav } from '@/components/MobileBottomNav'
 import CursorTrail from '@/components/ui/CursorTrail'
@@ -25,19 +26,21 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <TranslationProvider>
-          <ScrollProgress />
-          <CommandPalette />
-          <CursorTrail 
-            type="dots" 
-            color="#60A5FA" 
-            size={25} 
-            length={15} 
-            physics={true}
-          />
-          {children}
-          <MobileBottomNav />
-        </TranslationProvider>
+        <CartProvider>
+          <TranslationProvider>
+            <ScrollProgress />
+            <CommandPalette />
+            <CursorTrail 
+              type="dots" 
+              color="#60A5FA" 
+              size={25} 
+              length={15} 
+              physics={true}
+            />
+            {children}
+            <MobileBottomNav />
+          </TranslationProvider>
+        </CartProvider>
       </body>
     </html>
   )
