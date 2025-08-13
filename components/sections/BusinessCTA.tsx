@@ -6,6 +6,7 @@ import { Check, ArrowRight, Sparkles } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
 import { Button } from '@/components/ui/Button'
 import { BusinessAccountModal } from '@/components/ui/BusinessAccountModal'
+import ScrambleText from '@/components/ui/ScrambleText'
 
 // Floating particle component
 const FloatingParticle = ({ index }: { index: number }) => {
@@ -152,7 +153,13 @@ export const BusinessCTA = () => {
                 transition={{ delay: 0.2 }}
                 className="text-3xl md:text-4xl font-bold mb-4 text-center font-heading"
               >
-                {content.headline}
+                <ScrambleText
+                  text={content.headline}
+                  trigger="scroll"
+                  mode="glitch"
+                  gradient="#60A5FA, #8B5CF6, #EC4899"
+                  className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400"
+                />
               </motion.h2>
               <motion.div
                 className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"
@@ -210,6 +217,8 @@ export const BusinessCTA = () => {
                   size="lg"
                   className="group relative overflow-hidden"
                   onClick={() => setIsModalOpen(true)}
+                  magnetic={true}
+                  magneticStrength={0.3}
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     {content.cta.primary}
@@ -238,6 +247,8 @@ export const BusinessCTA = () => {
                 <Button 
                   variant="secondary" 
                   size="lg"
+                  magnetic={true}
+                  magneticStrength={0.25}
                 >
                   {content.cta.secondary}
                 </Button>

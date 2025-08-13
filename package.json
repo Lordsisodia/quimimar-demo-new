@@ -6,28 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "npx ts-node scripts/analyze-site.ts",
+    "install-playwright": "npx playwright install"
   },
   "dependencies": {
-    "next": "14.2.18",
-    "react": "^18",
-    "react-dom": "^18",
-    "framer-motion": "^11.15.0",
-    "lucide-react": "^0.344.0",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.0",
+    "framer-motion": "^11.15.0",
+    "lucide-react": "^0.344.0",
+    "next": "14.2.18",
+    "playwright": "^1.54.2",
+    "react": "^18",
+    "react-dom": "^18",
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@playwright/test": "^1.54.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.18",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.18"
+    "typescript": "^5"
   }
 }

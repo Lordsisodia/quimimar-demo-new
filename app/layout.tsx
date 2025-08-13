@@ -3,6 +3,8 @@ import './globals.css'
 import { TranslationProvider } from '@/hooks/useTranslation'
 import { ScrollProgress } from '@/components/ScrollProgress'
 import { MobileBottomNav } from '@/components/MobileBottomNav'
+import CursorTrail from '@/components/ui/CursorTrail'
+import { CommandPalette } from '@/components/ui/CommandPalette'
 
 export const metadata: Metadata = {
   title: 'Quimimar - Productos de Limpieza Profesional en Murcia',
@@ -25,6 +27,14 @@ export default function RootLayout({
       <body>
         <TranslationProvider>
           <ScrollProgress />
+          <CommandPalette />
+          <CursorTrail 
+            type="dots" 
+            color="#60A5FA" 
+            size={25} 
+            length={15} 
+            physics={true}
+          />
           {children}
           <MobileBottomNav />
         </TranslationProvider>

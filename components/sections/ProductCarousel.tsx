@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/Button'
 import { QuickViewModal } from '@/components/ui/QuickViewModal'
 import { Carousel } from '@/components/ui/Carousel'
 import { sampleProducts } from '@/lib/sampleData'
+import ScrambleText from '@/components/ui/ScrambleText'
 
 export const ProductCarousel = () => {
   const { t } = useTranslation()
@@ -28,7 +29,12 @@ export const ProductCarousel = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
-            {content.sectionTitle}
+            <ScrambleText
+              text={content.sectionTitle}
+              trigger="scroll"
+              mode="letters"
+              className="text-gray-900"
+            />
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {content.sectionSubtitle}
@@ -146,7 +152,12 @@ const ProductCard = ({
       <div className="p-4 flex-1 flex flex-col">
         {/* Name */}
         <h3 className="font-medium mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-          {product.name}
+          <ScrambleText
+            text={product.name}
+            trigger="hover"
+            mode="letters"
+            className="text-gray-900 group-hover:text-primary"
+          />
         </h3>
         
         {/* Rating */}
@@ -183,6 +194,8 @@ const ProductCard = ({
             disabled={!product.inStock || isAddingToCart}
             loading={isAddingToCart}
             icon={!isAddingToCart && <ShoppingCart className="w-4 h-4" />}
+            magnetic={true}
+            magneticStrength={0.2}
           >
             {!product.inStock 
               ? content.outOfStock 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Navigation - Quimimar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .nav-test {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .nav-link {
+            display: block;
+            padding: 10px 15px;
+            margin: 5px 0;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .nav-link:hover {
+            background-color: #0056b3;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test de Navegación - Quimimar Demo</h1>
+    
+    <div class="nav-test">
+        <h2>Enlaces de Navegación Principal</h2>
+        <p>Haz clic en cada enlace para verificar que funciona correctamente:</p>
+        
+        <a href="http://localhost:3000/" class="nav-link" target="_blank">🏠 Inicio (/)</a>
+        <a href="http://localhost:3000/productos" class="nav-link" target="_blank">📦 Productos (/productos)</a>
+        <a href="http://localhost:3000/empresas" class="nav-link" target="_blank">🏢 Empresas (/empresas)</a>
+        <a href="http://localhost:3000/nosotros" class="nav-link" target="_blank">ℹ️ Nosotros (/nosotros)</a>
+        <a href="http://localhost:3000/contacto" class="nav-link" target="_blank">📧 Contacto (/contacto)</a>
+        <a href="http://localhost:3000/carrito" class="nav-link" target="_blank">🛒 Carrito (/carrito)</a>
+        <a href="http://localhost:3000/checkout" class="nav-link" target="_blank">💳 Checkout (/checkout)</a>
+        <a href="http://localhost:3000/account" class="nav-link" target="_blank">👤 Mi Cuenta (/account)</a>
+        <a href="http://localhost:3000/admin" class="nav-link" target="_blank">⚙️ Admin (/admin)</a>
+    </div>
+    
+    <div class="nav-test">
+        <h2>Páginas Dinámicas</h2>
+        <a href="http://localhost:3000/productos/1" class="nav-link" target="_blank">🧪 Producto Detalle - CLORSAN (/productos/1)</a>
+        <a href="http://localhost:3000/productos/2" class="nav-link" target="_blank">🧪 Producto Detalle - AMBIXEL (/productos/2)</a>
+    </div>
+    
+    <div class="nav-test">
+        <h2>Test de Error 404</h2>
+        <a href="http://localhost:3000/pagina-que-no-existe" class="nav-link" target="_blank">❌ Página Inexistente (debe mostrar 404)</a>
+    </div>
+    
+    <div class="status success">
+        <h3>✅ Páginas que deberían funcionar:</h3>
+        <ul>
+            <li>/ (Inicio)</li>
+            <li>/productos (Catálogo de productos)</li>
+            <li>/productos/[id] (Detalle de producto)</li>
+            <li>/empresas (Soluciones empresariales)</li>
+            <li>/nosotros (Acerca de)</li>
+            <li>/contacto (Contacto)</li>
+            <li>/carrito (Carrito de compras)</li>
+            <li>/checkout (Proceso de pago)</li>
+            <li>/account (Login/Registro)</li>
+            <li>/admin (Panel de administración)</li>
+        </ul>
+    </div>
+    
+    <div class="status error">
+        <h3>❌ Páginas que NO deben existir (eliminadas):</h3>
+        <ul>
+            <li>/products (versión en inglés)</li>
+            <li>/business (versión en inglés)</li>
+            <li>/about (versión en inglés)</li>
+            <li>/contact (versión en inglés)</li>
+            <li>/demo (página demo)</li>
+        </ul>
+    </div>
+</body>
+</html>

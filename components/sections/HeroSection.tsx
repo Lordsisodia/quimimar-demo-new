@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
 import { Button } from '@/components/ui/Button'
+import ScrambleText from '@/components/ui/ScrambleText'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -93,7 +94,14 @@ export const HeroSection = () => {
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-heading leading-tight"
           >
-            {content.headline}
+            <ScrambleText
+              text={content.headline}
+              trigger="auto"
+              mode="glitch"
+              delay={1000}
+              gradient="#60A5FA, #8B5CF6, #EC4899"
+              className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400"
+            />
           </motion.h1>
           
           <motion.p 
@@ -129,6 +137,8 @@ export const HeroSection = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button 
                 size="lg" 
+                magnetic={true}
+                magneticStrength={0.3}
                 className="group relative overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-2">
@@ -151,6 +161,8 @@ export const HeroSection = () => {
             <Button 
               variant="secondary" 
               size="lg"
+              magnetic={true}
+              magneticStrength={0.2}
               className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20"
             >
               {content.cta.secondary}

@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from '@/hooks/useTranslation'
+import ScrambleText from '@/components/ui/ScrambleText'
 
 export const ValueProps = () => {
   const { t } = useTranslation()
@@ -19,7 +20,12 @@ export const ValueProps = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
-            {content.sectionTitle}
+            <ScrambleText
+              text={content.sectionTitle}
+              trigger="scroll"
+              mode="letters"
+              className="text-gray-900"
+            />
           </h2>
         </motion.div>
 
@@ -67,7 +73,12 @@ const ValuePropCard = ({
       
       {/* Title */}
       <h3 className="text-xl font-semibold mb-2 font-heading group-hover:text-primary transition-colors">
-        {title}
+        <ScrambleText
+          text={title}
+          trigger="hover"
+          mode="letters"
+          className="text-gray-900 group-hover:text-primary"
+        />
       </h3>
       
       {/* Description */}

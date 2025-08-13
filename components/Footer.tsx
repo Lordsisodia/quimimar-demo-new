@@ -7,6 +7,7 @@ import { Send, Facebook, Instagram, Linkedin, Twitter, CreditCard } from 'lucide
 import { useTranslation } from '@/hooks/useTranslation'
 import { Input } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
+import ScrambleText from '@/components/ui/ScrambleText'
 
 // Payment method icons as SVG components
 const PaymentIcons = {
@@ -70,7 +71,12 @@ export const Footer = () => {
             className="max-w-2xl mx-auto text-center"
           >
             <h3 className="text-2xl font-bold mb-2">
-              {content.newsletter.title}
+              <ScrambleText
+                text={content.newsletter.title}
+                trigger="scroll"
+                mode="letters"
+                className="text-white"
+              />
             </h3>
             <p className="mb-6 opacity-90">
               {content.newsletter.subtitle}
@@ -89,6 +95,8 @@ export const Footer = () => {
                 loading={isSubscribing}
                 icon={!isSubscribing && <Send className="w-4 h-4" />}
                 className="bg-white text-primary hover:bg-gray-100"
+                magnetic={true}
+                magneticStrength={0.3}
               >
                 {content.newsletter.button}
               </Button>
@@ -103,7 +111,14 @@ export const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
-              <h3 className="text-2xl font-bold mb-4">QUIMIMAR</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                <ScrambleText
+                  text="QUIMIMAR"
+                  trigger="hover"
+                  mode="letters"
+                  className="text-white"
+                />
+              </h3>
               <p className="text-gray-400 mb-4">
                 Tu distribuidor de confianza de productos de limpieza profesional en Murcia.
               </p>

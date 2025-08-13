@@ -1,0 +1,189 @@
+{
+  "analysis": {
+    "timestamp": "2025-08-12T23:12:45.154Z",
+    "url": "https://www.qdq.com/quimimar-282179",
+    "title": "QUIMIMAR, Productos químicos Alcantarilla, Murcia - qdq",
+    "description": "Encuentra toda la información de QUIMIMAR, Productos químicos Alcantarilla, Murcia"
+  },
+  "assets": {
+    "images": {
+      "total": 8,
+      "byType": {
+        "icon": 2,
+        "logo": 3,
+        "other": 3
+      },
+      "downloaded": 7
+    },
+    "components": {
+      "total": 7,
+      "byType": {
+        "header": 1,
+        "nav": 1,
+        "main": 1,
+        "footer": 1,
+        "div": 3
+      }
+    }
+  },
+  "design": {
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(0, 86, 167)",
+      "rgba(255, 255, 255, 0)",
+      "rgb(255, 255, 255)",
+      "rgb(244, 244, 244)",
+      "rgb(33, 33, 33)",
+      "rgb(206, 163, 255)",
+      "rgba(0, 0, 0, 0)",
+      "rgb(3, 24, 30)",
+      "rgb(193, 252, 110)",
+      "rgb(0, 128, 0)",
+      "rgb(235, 235, 235)",
+      "rgb(33, 33, 33) rgb(33, 33, 33) rgb(235, 235, 235)",
+      "rgb(208, 213, 210)",
+      "rgb(244, 244, 244) rgb(244, 244, 244) rgb(33, 33, 33)",
+      "rgb(237, 237, 237)",
+      "rgb(41, 60, 91)",
+      "rgb(247, 247, 247)",
+      "rgb(0, 0, 238)",
+      "rgb(0, 0, 0) rgb(0, 0, 0) rgb(226, 226, 226)",
+      "rgb(0, 0, 0) rgb(0, 0, 0) rgb(255, 255, 255)",
+      "rgb(0, 0, 0) rgb(0, 0, 0) rgb(228, 228, 228)",
+      "rgb(217, 217, 217) rgb(0, 0, 0) rgb(217, 217, 217) rgb(217, 217, 217)",
+      "rgb(0, 0, 0) rgb(217, 217, 217) rgb(0, 0, 0) rgb(0, 0, 0)",
+      "rgb(0, 0, 0) rgb(217, 217, 217) rgb(217, 217, 217)",
+      "rgb(217, 217, 217) rgb(0, 0, 0)",
+      "rgb(217, 217, 217) rgb(217, 217, 217) rgb(217, 217, 217) rgb(0, 0, 0)",
+      "rgb(153, 153, 153)",
+      "rgb(154, 163, 165)",
+      "rgb(51, 51, 51)",
+      "rgb(107, 220, 95)",
+      "rgba(235, 235, 235, 0.35)",
+      "rgba(255, 255, 255, 0.9)",
+      "rgb(228, 228, 228)",
+      "rgba(0, 0, 0, 0.2)",
+      "rgb(95, 99, 104)",
+      "rgba(25, 103, 210, 0.24)",
+      "rgb(60, 64, 67)",
+      "rgb(218, 220, 224)",
+      "rgb(248, 249, 250)",
+      "rgb(25, 103, 210)",
+      "rgb(241, 243, 244)",
+      "rgb(128, 134, 139)",
+      "rgb(32, 33, 36)"
+    ],
+    "fonts": [
+      "Times",
+      "\"DM Sans\", sans-serif",
+      "Arial",
+      "\"DM Sans\", \"DM Sans Fallback\"",
+      "qdq-brand-icons",
+      "Ionicons, monospace",
+      "Lato, sans-serif",
+      "\"Open Sans\""
+    ],
+    "colorPalette": {
+      "primary": [
+        "rgb(0, 86, 167)",
+        "rgba(255, 255, 255, 0)",
+        "rgb(244, 244, 244)"
+      ],
+      "secondary": [
+        "rgb(33, 33, 33)",
+        "rgb(206, 163, 255)",
+        "rgba(0, 0, 0, 0)",
+        "rgb(3, 24, 30)",
+        "rgb(193, 252, 110)",
+        "rgb(0, 128, 0)",
+        "rgb(235, 235, 235)",
+        "rgb(33, 33, 33) rgb(33, 33, 33) rgb(235, 235, 235)",
+        "rgb(208, 213, 210)",
+        "rgb(244, 244, 244) rgb(244, 244, 244) rgb(33, 33, 33)",
+        "rgb(237, 237, 237)",
+        "rgb(41, 60, 91)",
+        "rgb(247, 247, 247)",
+        "rgb(0, 0, 238)",
+        "rgb(153, 153, 153)",
+        "rgb(154, 163, 165)",
+        "rgb(51, 51, 51)",
+        "rgb(107, 220, 95)",
+        "rgba(235, 235, 235, 0.35)",
+        "rgba(255, 255, 255, 0.9)",
+        "rgb(228, 228, 228)",
+        "rgba(0, 0, 0, 0.2)",
+        "rgb(95, 99, 104)",
+        "rgba(25, 103, 210, 0.24)",
+        "rgb(60, 64, 67)",
+        "rgb(218, 220, 224)",
+        "rgb(248, 249, 250)",
+        "rgb(25, 103, 210)",
+        "rgb(241, 243, 244)",
+        "rgb(128, 134, 139)",
+        "rgb(32, 33, 36)"
+      ],
+      "neutral": [
+        "rgb(0, 0, 0)",
+        "rgb(255, 255, 255)",
+        "rgb(0, 0, 0) rgb(0, 0, 0) rgb(226, 226, 226)",
+        "rgb(0, 0, 0) rgb(0, 0, 0) rgb(255, 255, 255)",
+        "rgb(0, 0, 0) rgb(0, 0, 0) rgb(228, 228, 228)",
+        "rgb(217, 217, 217) rgb(0, 0, 0) rgb(217, 217, 217) rgb(217, 217, 217)",
+        "rgb(0, 0, 0) rgb(217, 217, 217) rgb(0, 0, 0) rgb(0, 0, 0)",
+        "rgb(0, 0, 0) rgb(217, 217, 217) rgb(217, 217, 217)",
+        "rgb(217, 217, 217) rgb(0, 0, 0)",
+        "rgb(217, 217, 217) rgb(217, 217, 217) rgb(217, 217, 217) rgb(0, 0, 0)"
+      ]
+    }
+  },
+  "structure": {
+    "navigation": [
+      "Kit Digital",
+      "Kit Consulting",
+      "Contacto",
+      "Anúnciate gratis",
+      "Soluciones",
+      "Planes",
+      "Conócenos",
+      "qdq academy",
+      "IA Lab",
+      "Kit Digital 👈🏻",
+      "Guía útil",
+      "Llama gratis",
+      "Acceso a Espacio Qonecta"
+    ],
+    "sections": [
+      "footer-links-section",
+      "footer-footer-legal-section-wrapper",
+      "footer-legal-section",
+      "footer-copyright-section",
+      "notranslate faq-section-closed",
+      "notranslate faq-section-open"
+    ],
+    "layout": "default-layout"
+  },
+  "content": {
+    "headings": 241,
+    "paragraphs": 476,
+    "buttons": 426,
+    "forms": 1,
+    "links": 667
+  },
+  "metadata": {
+    "viewport": "width=device-width, initial-scale=1, user-scalable=no",
+    "charset": "utf-8",
+    "ogTags": {
+      "og:type": "website",
+      "og:title": "qdq.com",
+      "og:site_name": "qdq.com",
+      "og:image": "https://estaticos.qdq.com/nqdq/master-f2e4815a/icons/icon_512x512.08fb60.png",
+      "og:image:width": "512",
+      "og:image:height": "512",
+      "og:image:type": "image/png"
+    },
+    "twitterTags": {}
+  },
+  "recommendations": [
+    "Consider simplifying the color palette for better consistency"
+  ]
+}

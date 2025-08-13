@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
 import { Card } from '@/components/ui/Card'
+import ScrambleText from '@/components/ui/ScrambleText'
 
 // Category images mapping
 const categoryImages = {
@@ -30,7 +31,12 @@ export const CategoryGrid = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
-            {content.sectionTitle}
+            <ScrambleText
+              text={content.sectionTitle}
+              trigger="scroll"
+              mode="letters"
+              className="text-gray-900"
+            />
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {content.sectionSubtitle}
@@ -147,7 +153,12 @@ const CategoryCard3D = ({
           {/* Text content */}
           <div style={{ transform: 'translateZ(10px)' }}>
             <h3 className="text-xl font-semibold mb-2 font-heading">
-              {name}
+              <ScrambleText
+                text={name}
+                trigger="hover"
+                mode="letters"
+                className="text-white"
+              />
             </h3>
             <p className="text-white/80 mb-4 line-clamp-2">
               {description}

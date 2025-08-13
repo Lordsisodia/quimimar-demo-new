@@ -6,6 +6,7 @@ import { Phone, MessageCircle, Mail, MapPin, Clock } from 'lucide-react'
 import { useTranslation } from '@/hooks/useTranslation'
 import { Button } from '@/components/ui/Button'
 import { InteractiveMap } from '@/components/ui/InteractiveMap'
+import ScrambleText from '@/components/ui/ScrambleText'
 
 export const ContactSection = () => {
   const { t } = useTranslation()
@@ -22,7 +23,12 @@ export const ContactSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
-            {content.sectionTitle}
+            <ScrambleText
+              text={content.sectionTitle}
+              trigger="scroll"
+              mode="letters"
+              className="text-gray-900"
+            />
           </h2>
         </motion.div>
 
