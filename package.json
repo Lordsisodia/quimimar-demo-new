@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "dev:network": "node scripts/dev-with-network.js",
+    "network-info": "node scripts/show-network-urls.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

@@ -7,6 +7,7 @@ import { useTranslation } from '@/hooks/useTranslation'
 import { Button } from '@/components/ui/Button'
 import { InteractiveMap } from '@/components/ui/InteractiveMap'
 import ScrambleText from '@/components/ui/ScrambleText'
+import { companyInfo } from '@/data/company-info'
 
 export const ContactSection = () => {
   const { t } = useTranslation()
@@ -41,10 +42,10 @@ export const ContactSection = () => {
             className="bg-white rounded-xl shadow-lg overflow-hidden h-[400px] lg:h-full"
           >
             <InteractiveMap
-              latitude={37.958889}
-              longitude={-1.231111}
-              companyName="Quimimar"
-              address={`${content.address.line1}, ${content.address.line3}`}
+              latitude={companyInfo.contact.location.lat}
+              longitude={companyInfo.contact.location.lng}
+              companyName={companyInfo.name}
+              address={`${companyInfo.contact.address.street}, ${companyInfo.contact.address.city}, ${companyInfo.contact.address.state}`}
             />
           </motion.div>
 
