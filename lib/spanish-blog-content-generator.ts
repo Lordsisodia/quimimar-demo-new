@@ -795,7 +795,7 @@ La inversión en limpieza profesional es inversión en productividad, salud labo
       }
     },
     relatedProducts: ["FRESC-5L", "FRESC-1L", "WAN-FLORAL-5L"],
-    contentType: "industry-guide",
+    contentType: "industry-specific",
     difficulty: "intermediate",
     engagement: {
       estimatedShares: 250,
@@ -872,7 +872,7 @@ export class BlogContentGenerator {
     variations.push(`cuál ${baseKeyword}`);
     variations.push(`dónde comprar ${baseKeyword}`);
 
-    return [...new Set(variations)]; // Remove duplicates
+    return Array.from(new Set(variations)); // Remove duplicates
   }
 
   static generateContentCalendar(startDate: Date, weeks: number): Array<{

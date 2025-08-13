@@ -64,8 +64,27 @@ export const Header = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
+            {/* Command Palette Trigger */}
+            <button
+              onClick={() => {
+                const event = new KeyboardEvent('keydown', {
+                  key: 'k',
+                  metaKey: true,
+                  ctrlKey: true
+                })
+                window.dispatchEvent(event)
+              }}
+              className="hidden md:flex items-center gap-2 px-3 py-1.5 text-sm text-gray-500 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+            >
+              <Search className="w-4 h-4" />
+              <span>Buscar</span>
+              <kbd className="ml-2 px-1.5 py-0.5 text-xs bg-white rounded border border-gray-300">
+                ⌘K
+              </kbd>
+            </button>
+
             {/* Search */}
-            <div className="hidden md:block relative">
+            <div className="hidden md:hidden relative">
               <div className="relative">
                 <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 <Input
