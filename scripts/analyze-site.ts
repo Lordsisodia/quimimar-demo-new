@@ -1,6 +1,6 @@
 #!/usr/bin/env npx ts-node
 
-import { WebsiteAnalyzer } from './website-analyzer.js';
+import { WebsiteAnalyzer } from './website-analyzer';
 
 async function analyzeSite() {
   // Get URL from command line arguments or use default

@@ -56,7 +56,7 @@
       "alt": "",
       "width": 58,
       "height": 58,
-      "type": "other"
+      "type": "icon"
     },
     {
       "src": "https://lh3.googleusercontent.com/4qklkY64j2hx1v31of4jdIh4Vz-I9okWSMYJ9qsKVQMprDxBuZoxELkzb-5wXW_o0oBvtf0TgMUHeBsQg0_DKNtVOrkP8asvIoV9rqwHDGrJhLzSjRIW=h60",
@@ -133,7 +133,7 @@
       },
       "attributes": {
         "class": "",
-        "id": ""
+        "id": "ae-skip-to-content"
       },
       "selector": "main"
     },
@@ -232,6 +232,7 @@
   ],
   "colors": [
     "rgb(0, 0, 0)",
+    "rgb(0, 0, 238)",
     "rgb(0, 86, 167)",
     "rgba(255, 255, 255, 0)",
     "rgb(255, 255, 255)",
@@ -244,12 +245,10 @@
     "rgb(0, 128, 0)",
     "rgb(235, 235, 235)",
     "rgb(33, 33, 33) rgb(33, 33, 33) rgb(235, 235, 235)",
-    "rgb(208, 213, 210)",
     "rgb(244, 244, 244) rgb(244, 244, 244) rgb(33, 33, 33)",
     "rgb(237, 237, 237)",
     "rgb(41, 60, 91)",
     "rgb(247, 247, 247)",
-    "rgb(0, 0, 238)",
     "rgb(0, 0, 0) rgb(0, 0, 0) rgb(226, 226, 226)",
     "rgb(0, 0, 0) rgb(0, 0, 0) rgb(255, 255, 255)",
     "rgb(0, 0, 0) rgb(0, 0, 0) rgb(228, 228, 228)",
@@ -2189,6 +2188,7 @@
       "form-0: form-search"
     ],
     "links": [
+      "Skip To Main Content",
       "Política de cookies",
       "Política de privacidad de Google",
       "políticas de limitación de velocidad",

@@ -1,6 +1,6 @@
 {
   "analysis": {
-    "timestamp": "2025-08-12T23:12:45.154Z",
+    "timestamp": "2025-08-13T01:22:03.681Z",
     "url": "https://www.qdq.com/quimimar-282179",
     "title": "QUIMIMAR, Productos químicos Alcantarilla, Murcia - qdq",
     "description": "Encuentra toda la información de QUIMIMAR, Productos químicos Alcantarilla, Murcia"
@@ -9,9 +9,9 @@
     "images": {
       "total": 8,
       "byType": {
-        "icon": 2,
+        "icon": 3,
         "logo": 3,
-        "other": 3
+        "other": 2
       },
       "downloaded": 7
     },
@@ -29,6 +29,7 @@
   "design": {
     "colors": [
       "rgb(0, 0, 0)",
+      "rgb(0, 0, 238)",
       "rgb(0, 86, 167)",
       "rgba(255, 255, 255, 0)",
       "rgb(255, 255, 255)",
@@ -41,12 +42,10 @@
       "rgb(0, 128, 0)",
       "rgb(235, 235, 235)",
       "rgb(33, 33, 33) rgb(33, 33, 33) rgb(235, 235, 235)",
-      "rgb(208, 213, 210)",
       "rgb(244, 244, 244) rgb(244, 244, 244) rgb(33, 33, 33)",
       "rgb(237, 237, 237)",
       "rgb(41, 60, 91)",
       "rgb(247, 247, 247)",
-      "rgb(0, 0, 238)",
       "rgb(0, 0, 0) rgb(0, 0, 0) rgb(226, 226, 226)",
       "rgb(0, 0, 0) rgb(0, 0, 0) rgb(255, 255, 255)",
       "rgb(0, 0, 0) rgb(0, 0, 0) rgb(228, 228, 228)",
@@ -85,11 +84,12 @@
     ],
     "colorPalette": {
       "primary": [
+        "rgb(0, 0, 238)",
         "rgb(0, 86, 167)",
-        "rgba(255, 255, 255, 0)",
-        "rgb(244, 244, 244)"
+        "rgba(255, 255, 255, 0)"
       ],
       "secondary": [
+        "rgb(244, 244, 244)",
         "rgb(33, 33, 33)",
         "rgb(206, 163, 255)",
         "rgba(0, 0, 0, 0)",
@@ -98,12 +98,10 @@
         "rgb(0, 128, 0)",
         "rgb(235, 235, 235)",
         "rgb(33, 33, 33) rgb(33, 33, 33) rgb(235, 235, 235)",
-        "rgb(208, 213, 210)",
         "rgb(244, 244, 244) rgb(244, 244, 244) rgb(33, 33, 33)",
         "rgb(237, 237, 237)",
         "rgb(41, 60, 91)",
         "rgb(247, 247, 247)",
-        "rgb(0, 0, 238)",
         "rgb(153, 153, 153)",
         "rgb(154, 163, 165)",
         "rgb(51, 51, 51)",
@@ -167,7 +165,7 @@
     "paragraphs": 476,
     "buttons": 426,
     "forms": 1,
-    "links": 667
+    "links": 668
   },
   "metadata": {
     "viewport": "width=device-width, initial-scale=1, user-scalable=no",

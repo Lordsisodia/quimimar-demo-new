@@ -73,6 +73,169 @@ class WebsiteAnalyzer {
     }
   }
 
+  /**
+   * Dismiss cookie consent popups and modals
+   */
+  private async dismissPopups(page: Page): Promise<void> {
+    console.log('🍪 Checking for popups and cookie consent...');
+    
+    try {
+      // Common cookie consent button selectors
+      const consentSelectors = [
+        // Generic accept buttons
+        'button:has-text("Accept")',
+        'button:has-text("Aceptar")',
+        'button:has-text("Accept all")',
+        'button:has-text("Accept cookies")',
+        'button:has-text("I agree")',
+        'button:has-text("Got it")',
+        'button:has-text("OK")',
+        'button:has-text("Allow")',
+        'button:has-text("Agree")',
+        
+        // Common class/id patterns
+        '[class*="cookie"] button[class*="accept"]',
+        '[class*="consent"] button[class*="accept"]',
+        '[id*="cookie"] button[id*="accept"]',
+        '#onetrust-accept-btn-handler',
+        '.cookie-consent-accept',
+        '.cky-btn-accept',
+        '[data-cookiebanner="accept_button"]',
+        
+        // Specific to QDQ/Spanish sites
+        'button:has-text("Consentir")',
+        '.cookie-consent button.primary',
+        '[class*="modal"] button[class*="primary"]'
+      ];
+
+      // Try each selector
+      for (const selector of consentSelectors) {
+        try {
+          const button = await page.locator(selector).first();
+          if (await button.isVisible({ timeout: 1000 })) {
+            await button.click();
+            console.log(`✅ Dismissed popup with selector: ${selector}`);
+            await page.waitForTimeout(1000); // Wait for animation
+            break;
+          }
+        } catch (e) {
+          // Continue to next selector
+        }
+      }
+
+      // Also try to close modals/overlays
+      const closeSelectors = [
+        '[aria-label="Close"]',
+        '[aria-label="Cerrar"]',
+        'button.close',
+        '.modal-close',
+        '[class*="close-button"]',
+        '[class*="dismiss"]'
+      ];
+
+      for (const selector of closeSelectors) {
+        try {
+          const closeBtn = await page.locator(selector).first();
+          if (await closeBtn.isVisible({ timeout: 500 })) {
+            await closeBtn.click();
+            console.log(`✅ Closed modal with selector: ${selector}`);
+            await page.waitForTimeout(500);
+          }
+        } catch (e) {
+          // Continue
+        }
+      }
+
+    } catch (error) {
+      console.log('⚠️ No popups found or already dismissed');
+    }
+  }
+
+  /**
+   * Intelligent scrolling to load all lazy-loaded content
+   */
+  private async intelligentScroll(page: Page): Promise<void> {
+    console.log('📜 Starting intelligent scroll to load all content...');
+    
+    // Get initial image count
+    let previousImageCount = await page.$$eval('img', imgs => imgs.length);
+    let scrollAttempts = 0;
+    const maxScrollAttempts = 10;
+    
+    while (scrollAttempts < maxScrollAttempts) {
+      // Scroll down by viewport height
+      await page.evaluate(() => {
+        window.scrollBy(0, window.innerHeight);
+      });
+      
+      // Wait for potential lazy loading
+      await page.waitForTimeout(1500);
+      
+      // Check if new images loaded
+      const currentImageCount = await page.$$eval('img', imgs => imgs.length);
+      
+      if (currentImageCount > previousImageCount) {
+        console.log(`🖼️ Loaded ${currentImageCount - previousImageCount} new images (Total: ${currentImageCount})`);
+        previousImageCount = currentImageCount;
+        scrollAttempts = 0; // Reset counter if new content found
+      } else {
+        scrollAttempts++;
+      }
+      
+      // Check if reached bottom
+      const isAtBottom = await page.evaluate(() => {
+        return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+      });
+      
+      if (isAtBottom && scrollAttempts > 2) {
+        console.log('📄 Reached bottom of page');
+        break;
+      }
+    }
+    
+    // Scroll back to top for screenshot
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(1000);
+    
+    console.log('✅ Intelligent scroll complete');
+  }
+
+  /**
+   * Capture multiple screenshots
+   */
+  private async captureScreenshots(page: Page): Promise<void> {
+    console.log('📸 Capturing screenshots...');
+    
+    // Full page screenshot
+    await page.screenshot({
+      path: path.join(this.outputDir, 'full-page.png'),
+      fullPage: true
+    });
+    console.log('✅ Full page screenshot captured');
+    
+    // Above the fold screenshot
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(500);
+    await page.screenshot({
+      path: path.join(this.outputDir, 'above-fold.png'),
+      fullPage: false
+    });
+    console.log('✅ Above-fold screenshot captured');
+    
+    // Try to capture main content area
+    try {
+      const mainContent = await page.$('main, [role="main"], #main, .main-content');
+      if (mainContent) {
+        await mainContent.screenshot({
+          path: path.join(this.outputDir, 'main-content.png')
+        });
+        console.log('✅ Main content screenshot captured');
+      }
+    } catch (e) {
+      console.log('⚠️ Could not capture main content area');
+    }
+  }
+
   async init(): Promise<void> {
     this.browser = await chromium.launch({
       headless: true,
@@ -100,6 +263,12 @@ class WebsiteAnalyzer {
     await page.goto(url, { waitUntil: 'networkidle' });
     
     console.log(`📊 Analyzing: ${url}`);
+    
+    // Handle cookie consent and popups
+    await this.dismissPopups(page);
+    
+    // Scroll to load all lazy-loaded content
+    await this.intelligentScroll(page);
 
     // Extract all data
     const extractedData: ExtractedData = {
@@ -115,11 +284,8 @@ class WebsiteAnalyzer {
       metadata: await this.extractMetadata(page)
     };
 
-    // Take full page screenshot
-    await page.screenshot({
-      path: path.join(this.outputDir, 'full-page.png'),
-      fullPage: true
-    });
+    // Take screenshots
+    await this.captureScreenshots(page);
 
     await page.close();
     return extractedData;
@@ -135,25 +301,48 @@ class WebsiteAnalyzer {
   }
 
   private async extractImages(page: Page, baseUrl: string): Promise<ImageData[]> {
-    const images = await page.$$eval('img', (imgs, baseUrl) => {
-      return imgs.map(img => {
-        const src = img.src;
-        const alt = img.alt || '';
-        const width = img.naturalWidth || img.width;
-        const height = img.naturalHeight || img.height;
+    // Wait for images to be visible
+    await page.waitForLoadState('domcontentloaded');
+    
+    // Get all images including those with data-src (lazy loading)
+    const images = await page.$$eval('img, [data-src], [data-lazy]', (elements, baseUrl) => {
+      return elements.map(el => {
+        const img = el as HTMLImageElement;
+        
+        // Get src from various attributes (handle lazy loading)
+        const src = img.src || 
+                   img.getAttribute('data-src') || 
+                   img.getAttribute('data-lazy') ||
+                   img.getAttribute('data-original') ||
+                   '';
+                   
+        const alt = img.alt || img.getAttribute('alt') || '';
+        const width = img.naturalWidth || img.width || parseInt(img.getAttribute('width') || '0');
+        const height = img.naturalHeight || img.height || parseInt(img.getAttribute('height') || '0');
+        
+        // Skip placeholder or tracking pixels
+        if (width === 1 && height === 1) return null;
+        if (src.includes('pixel') || src.includes('tracking')) return null;
+        if (!src || src === 'data:,' || src.length < 10) return null;
         
         // Determine image type based on attributes and context
         let type: 'logo' | 'hero' | 'product' | 'icon' | 'background' | 'other' = 'other';
         
-        if (alt.toLowerCase().includes('logo') || src.toLowerCase().includes('logo')) {
+        const srcLower = src.toLowerCase();
+        const altLower = alt.toLowerCase();
+        
+        if (altLower.includes('logo') || srcLower.includes('logo')) {
           type = 'logo';
         } else if (img.closest('header, nav')) {
           type = 'logo';
-        } else if (img.closest('[class*="hero"], [class*="banner"]')) {
+        } else if (img.closest('[class*="hero"], [class*="banner"], [class*="slider"]')) {
           type = 'hero';
-        } else if (width && height && width < 50 && height < 50) {
+        } else if (width && height && width < 64 && height < 64) {
           type = 'icon';
-        } else if (alt.toLowerCase().includes('product') || src.toLowerCase().includes('product')) {
+        } else if (altLower.includes('product') || srcLower.includes('product') || 
+                   altLower.includes('producto') || srcLower.includes('producto')) {
+          type = 'product';
+        } else if (img.closest('[class*="product"], [class*="item"], [class*="gallery"]')) {
           type = 'product';
         }
 
@@ -164,17 +353,17 @@ class WebsiteAnalyzer {
           height,
           type
         };
-      });
+      }).filter(Boolean) as ImageData[];
     }, baseUrl);
 
     // Download images
     for (const image of images) {
-      if (image.src) {
+      if (image && image.src) {
         try {
           const filename = this.getImageFilename(image.src, image.type);
           const localPath = path.join(this.outputDir, 'images', filename);
           await this.downloadImage(image.src, localPath);
-          (image as ImageData).localPath = localPath;
+          image.localPath = localPath;
           console.log(`📷 Downloaded: ${filename}`);
         } catch (error) {
           console.error(`❌ Failed to download image: ${image.src}`, error);

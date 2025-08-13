@@ -3,7 +3,7 @@
 ## Overview
 - **URL**: https://www.qdq.com/quimimar-282179
 - **Title**: QUIMIMAR, Productos químicos Alcantarilla, Murcia - qdq
-- **Analysis Date**: 2025-08-12T23:12:45.154Z
+- **Analysis Date**: 2025-08-13T01:22:03.681Z
 
 ## Assets Summary
 - **Total Images**: 8
@@ -12,9 +12,9 @@
 
 ## Design Elements
 ### Color Palette
+- rgb(0, 0, 238)
 - rgb(0, 86, 167)
 - rgba(255, 255, 255, 0)
-- rgb(244, 244, 244)
 
 ### Typography
 - Times
